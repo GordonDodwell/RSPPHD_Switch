@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>RSPPHD - Template Switching</title>
     <style>
@@ -11,179 +12,229 @@
             justify-content: center;
             align-items: center;
             background-color: #333;
-            font-family: Arial, sans-serif; /* Improved font */
+            font-family: Arial, sans-serif;
         }
 
         .title {
             color: #eee;
-            margin: 30px 0; /* Consistent vertical spacing */
-            font-weight: bold; /* Make the title stand out */
+            margin: 20px;
+            font-size: 25px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         .tab {
-            overflow: hidden;
+            display: flex;
             background-color: #444;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease-in-out; /* Smooth transition for tab changes */
+            border-radius: 15px;
+            margin-bottom: 10px;
+            white-space: nowrap;
         }
 
-        .tab button {
+        .speed {
+            display: flex;
+            background-color: #444;
+            border-radius: 15px;
+            margin-top: 10px;
+            white-space: nowrap;
+        }
+
+        .button {
             background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
+            border-style: none;
             cursor: pointer;
-            padding: 14px 20px;
-            transition: 0.3s;
-            font-size: 17px;
-            border-radius: 8px;
-            color: #151515;
-            font-weight: 600; /* Make the button text stand out */
+            padding: 15px 24px;
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 15px;
+            color: #202020;
         }
 
-        .tab button:hover {
+        .button:hover {
             background-color: #555555;
-            color: #999; /* Change text color on hover for better contrast */
+            color: #999;
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .tab button.active {
+
+        .button.active {
             background-color: #777;
-            color: #eee; /* Change text color on active tab for better contrast */
+            color: #eee;
         }
 
         .tabcontent {
             display: none;
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
-            padding: 6px 12px;
-            width: 90%;
-            max-width: 1200px;
-            transition: all 0.3s ease-in-out; /* Smooth transition for content change */
+            padding: 5px;
+            width: 95%;
         }
-    
+
         video {
-            width: 100%; /* Set the width of the video */
-            max-width: 100%; /* Ensure the video doesn't overflow the container */
-            height: auto; /* Ensures the video will maintain it's aspect ratio */
-            max-height: 100%; /* Ensures the video doesn't overflow the container */
-            display: block;
-            border-radius: 10px;
+            width: 100%;
+            max-width: 100vw;
+            height: 100%;
+            max-height: 70vh;
+            display: flex;
+            border-radius: 15px;
             overflow: hidden;
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
         }
 
-    /* Responsive adjustments for smaller screens, if needed */
+        /* Responsive adjustments for smaller screens, if needed */
+        @media screen and (max-width: 800px) {
 
-        /* Responsive Design */
-        @media screen and (max-width: 600px) {
-            .video-container, video {
+            .video-container,
+            video {
                 width: 100%;
-                max-width: 100%;
+                max-width: 100vw;
+                max-height: 70vh;
+                border-radius: 10px;
             }
 
-            .tab button {
-                padding: 10px 15px;
+            .button {
+                padding: 10px 17px;
                 font-size: 15px;
+                border-radius: 10px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            .tab {
+                border-radius: 10px;
+            }
+
+            .speed {
+                border-radius: 10px;
             }
         }
-
     </style>
 </head>
+
 <body>
 
-<h1 class="title">RSPPHD - Template Switching</h1>
+    <h1 class="title">RSPPHD - Template Switching</h1>
 
-<div class="tab">
-  <button class="tablinks" onclick="openVideo(event, 'Video1')">Temporal</button>
-  <button class="tablinks" onclick="openVideo(event, 'Video2')">Auditory Cue</button>
-  <button class="tablinks" onclick="openVideo(event, 'Video3')">Visual Cue</button>
-</div>
+    <div class="tab">
+        <button class="tablinks" onclick="openVideo(event, 'Video1')">Temporal</button>
+        <button class="tablinks" onclick="openVideo(event, 'Video2')">Auditory Cue</button>
+        <button class="tablinks" onclick="openVideo(event, 'Video3')">Visual Cue</button>
+    </div>
 
-<div id="Video1" class="tabcontent">
-    <video controls loop muted playsinline>
-      <source src="temporal_1200.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+    <div id="Video1" class="tabcontent">
+        <video controls loop muted playsinline>
+            <source src="temporal_1200.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-  <div id="Video2" class="tabcontent">
-    <video controls loop playsinline>
-      <source src="audio_cue_1200.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+    <div id="Video2" class="tabcontent">
+        <video controls loop playsinline>
+            <source src="audio_cue_1200.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-  <div id="Video3" class="tabcontent">
-    <video controls loop muted playsinline>
-      <source src="visual_cue_1200.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+    <div id="Video3" class="tabcontent">
+        <video controls loop muted playsinline>
+            <source src="visual_cue_1200.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-  <script>
-    function openVideo(evt, videoName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].querySelector("video").pause();
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(videoName).style.display = "block";
-        evt.currentTarget.className += " active";
-        document.getElementById(videoName).querySelector("video").play(); // Autoplay the video in the active tab
-    }
+    <div class="speed">
+        <button class="speedlinks button" onclick="setSpeed(1, event)">full speed</button>
+        <button class="speedlinks button" onclick="setSpeed(0.1, event)">0.1x speed</button>
+    </div>
 
-    // Check for mobile device
-    function isMobileDevice() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-
-    // Add event listeners for touch events
-    document.addEventListener('DOMContentLoaded', function() {
-        var touchstartX = 0;
-        var touchendX = 0;
-        
-        const slider = document.querySelector('body'); // Change this selector to your swipeable area
-
-        function handleGesture() {
-            if (touchendX + 100 < touchstartX) {
-                changeTab('next');
+    <script>
+        function openVideo(evt, videoName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].querySelector("video").pause();
             }
-            
-            if (touchendX - 100 > touchstartX) {
-                changeTab('prev');
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(videoName).style.display = "block";
+            evt.currentTarget.className += " active";
+            document.getElementById(videoName).querySelector("video").play(); // Autoplay the video in the active tab
+        }
+
+        // Change tab on swipe
+        function changeTab(direction) {
+            var tabs = Array.from(document.getElementsByClassName('tablinks'));
+            var activeTab = tabs.findIndex(tab => tab.className.includes('active'));
+            if (direction === 'next' && activeTab < tabs.length - 1) {
+                tabs[activeTab + 1].click();
+            } else if (direction === 'prev' && activeTab > 0) {
+                tabs[activeTab - 1].click();
             }
         }
 
-        slider.addEventListener('touchstart', function(event) {
-            touchstartX = event.changedTouches[0].screenX;
-        }, false);
+        // Set playback speed
+        function setSpeed(speed) {
+            var i, speedlinks, tabcontent, video;
+            speedlinks = document.getElementsByClassName("speedlinks");
+            tabcontent = document.getElementsByClassName("tabcontent");
 
-        slider.addEventListener('touchend', function(event) {
-            touchendX = event.changedTouches[0].screenX;
-            handleGesture();
-        }, false);
-    });
+            // Remove active class from all speed buttons
+            for (i = 0; i < speedlinks.length; i++) {
+                speedlinks[i].className = speedlinks[i].className.replace(" active", "");
+            }
 
-    function changeTab(direction) {
-        var tabs = Array.from(document.getElementsByClassName('tablinks'));
-        var activeTab = tabs.findIndex(tab => tab.className.includes('active'));
-        if (direction === 'next' && activeTab < tabs.length - 1) {
-            tabs[activeTab + 1].click();
-        } else if (direction === 'prev' && activeTab > 0) {
-            tabs[activeTab - 1].click();
+            // Add active class to the clicked speed button
+            event.currentTarget.className += " active";
+
+            // Set the playback speed for the currently visible video
+            for (i = 0; i < tabcontent.length; i++) {
+                if (tabcontent[i].style.display === "flex") {
+                    video = tabcontent[i].querySelector("video");
+                    video.playbackRate = speed;
+                }
+            }
         }
-    }
 
-    // Open the first tab by default
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelector('.tablinks').click();
-    });
-</script>
+        // Add event listeners for touch events
+        document.addEventListener('DOMContentLoaded', function () {
+            var touchstartX = 0;
+            var touchendX = 0;
 
+            const slider = document.querySelector('body'); // Change this selector to your swipeable area
+
+            function handleGesture() {
+                if (touchendX + 100 < touchstartX) {
+                    changeTab('next');
+                }
+
+                if (touchendX - 100 > touchstartX) {
+                    changeTab('prev');
+                }
+            }
+
+            slider.addEventListener('touchstart', function (event) {
+                touchstartX = event.changedTouches[0].screenX;
+            }, false);
+
+            slider.addEventListener('touchend', function (event) {
+                touchendX = event.changedTouches[0].screenX;
+                handleGesture();
+            }, false);
+
+            // Open the first tab by default
+            document.querySelector('.tablinks').click();
+
+            // Set playback speed to 1x by default
+            document.querySelector('.speedlinks').click();
+        });
+
+    </script>
 </body>
+
 </html>
