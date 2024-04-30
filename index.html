@@ -21,6 +21,7 @@
             font-size: 25px;
             font-weight: 600;
             white-space: nowrap;
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         .tab {
@@ -76,6 +77,8 @@
             display: flex;
             border-radius: 15px;
             overflow: hidden;
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
         }
 
         /* Responsive adjustments for smaller screens, if needed */
@@ -215,20 +218,14 @@
                 touchendX = event.changedTouches[0].screenX;
                 handleGesture();
             }, false);
-        });
 
         // Open the first tab by default
-        document.addEventListener("DOMContentLoaded", function () {
             document.querySelector('.tablinks').click();
-        });
 
         // Set playback speed to 1x by default
-        document.addEventListener("DOMContentLoaded", function () {
             document.querySelector('.speedlinks').click();
         });
 
     </script>
-
 </body>
-
 </html>
