@@ -164,7 +164,7 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(videoName).style.display = "block";
+            document.getElementById(videoName).style.display = "flex";
             evt.currentTarget.className += " active";
             document.getElementById(videoName).querySelector("video").play(); // Autoplay the video in the active tab
         }
