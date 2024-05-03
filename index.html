@@ -153,6 +153,10 @@
     </div>
 
     <script>
+        // Default speed
+        var currentPlaybackRate = 1;
+
+        // Open the video tab
         function openVideo(evt, videoName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -166,7 +170,9 @@
             }
             document.getElementById(videoName).style.display = "flex";
             evt.currentTarget.className += " active";
-            document.getElementById(videoName).querySelector("video").play(); // Autoplay the video in the active tab
+            var video = document.getElementById(videoName).querySelector("video");
+            video.playbackRate = currentPlaybackRate; // Apply global speed variable
+            video.play(); // Autoplay the video in the active tab
         }
 
         // Change tab on swipe
@@ -193,6 +199,8 @@
 
             // Add active class to the clicked speed button
             event.currentTarget.className += " active";
+            // Update global speed variable
+            currentPlaybackRate = speed;
 
             // Set the playback speed for the currently visible video
             for (i = 0; i < tabcontent.length; i++) {
